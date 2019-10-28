@@ -32,7 +32,7 @@ class EOS < Oxidized::Model
         send "enable\n"
         # Interpret enable: true as meaning we won't be prompted for a password
         unless vars(:enable).is_a? TrueClass
-          expect /[pP]assword:\s?$/
+          expect /[pP]assword:\s?$|#/
           send vars(:enable) + "\n"
         end
         expect /^.+[#>]\s?$/
